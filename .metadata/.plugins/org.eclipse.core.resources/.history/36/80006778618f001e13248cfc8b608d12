@@ -109,11 +109,11 @@ int main(void)
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   SCH_Init();
-  SCH_Add_Task(blinking1, 0, 500);
-  SCH_Add_Task(blinking2, 500, 1500);
-  SCH_Add_Task(blinking3, 1500, 3000);
-  SCH_Add_Task(blinking4, 3000, 5000);
-  SCH_Add_Task(blinking5, 5000, 7500);
+  SCH_Add_Task(blinking1, 1000, 1000);
+  SCH_Add_Task(blinking2, 2000, 2000);
+  SCH_Add_Task(blinking3, 3000, 0);
+  SCH_Add_Task(blinking4, 4000, 3500);
+  SCH_Add_Task(blinking5, 5000, 1000);
   while (1)
   {
 	  SCH_Dispatch_Tasks();
