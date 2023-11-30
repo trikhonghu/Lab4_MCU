@@ -110,10 +110,10 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   SCH_Init();
   SCH_Add_Task(blinking1, 0, 500);
-  SCH_Add_Task(blinking2, 500, 1000);
-  SCH_Add_Task(blinking3, 1500, 1500);
-  SCH_Add_Task(blinking4, 3000, 2000);
-  SCH_Add_Task(blinking5, 5000, 2500);
+  SCH_Add_Task(blinking2, 500, 1500);
+  SCH_Add_Task(blinking3, 1500, 3000);
+  SCH_Add_Task(blinking4, 3000, 5000);
+  SCH_Add_Task(blinking5, 5000, 7500);
   while (1)
   {
 	  SCH_Dispatch_Tasks();

@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  000162da  00000000  00000000  0002af88  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   000098d4  00000000  00000000  00041262  2**0
+ 17 .debug_line   000098d1  00000000  00000000  00041262  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081e45  00000000  00000000  0004ab36  2**0
+ 18 .debug_str    00081e45  00000000  00000000  0004ab33  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cc97b  2**0
+ 19 .comment      00000053  00000000  00000000  000cc978  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  00002728  00000000  00000000  000cc9d0  2**2
+ 20 .debug_frame  00002728  00000000  00000000  000cc9cc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -193,23 +193,23 @@ int main(void)
  80001d2:	2100      	movs	r1, #0
  80001d4:	4811      	ldr	r0, [pc, #68]	; (800021c <main+0x6c>)
  80001d6:	f000 f995 	bl	8000504 <SCH_Add_Task>
-  SCH_Add_Task(blinking2, 500, 1500);
- 80001da:	f240 52dc 	movw	r2, #1500	; 0x5dc
+  SCH_Add_Task(blinking2, 500, 1000);
+ 80001da:	f44f 727a 	mov.w	r2, #1000	; 0x3e8
  80001de:	f44f 71fa 	mov.w	r1, #500	; 0x1f4
  80001e2:	480f      	ldr	r0, [pc, #60]	; (8000220 <main+0x70>)
  80001e4:	f000 f98e 	bl	8000504 <SCH_Add_Task>
-  SCH_Add_Task(blinking3, 1500, 3000);
- 80001e8:	f640 32b8 	movw	r2, #3000	; 0xbb8
+  SCH_Add_Task(blinking3, 1500, 1500);
+ 80001e8:	f240 52dc 	movw	r2, #1500	; 0x5dc
  80001ec:	f240 51dc 	movw	r1, #1500	; 0x5dc
  80001f0:	480c      	ldr	r0, [pc, #48]	; (8000224 <main+0x74>)
  80001f2:	f000 f987 	bl	8000504 <SCH_Add_Task>
-  SCH_Add_Task(blinking4, 3000, 5000);
- 80001f6:	f241 3288 	movw	r2, #5000	; 0x1388
+  SCH_Add_Task(blinking4, 3000, 2000);
+ 80001f6:	f44f 62fa 	mov.w	r2, #2000	; 0x7d0
  80001fa:	f640 31b8 	movw	r1, #3000	; 0xbb8
  80001fe:	480a      	ldr	r0, [pc, #40]	; (8000228 <main+0x78>)
  8000200:	f000 f980 	bl	8000504 <SCH_Add_Task>
-  SCH_Add_Task(blinking5, 5000, 7500);
- 8000204:	f641 524c 	movw	r2, #7500	; 0x1d4c
+  SCH_Add_Task(blinking5, 5000, 2500);
+ 8000204:	f640 12c4 	movw	r2, #2500	; 0x9c4
  8000208:	f241 3188 	movw	r1, #5000	; 0x1388
  800020c:	4807      	ldr	r0, [pc, #28]	; (800022c <main+0x7c>)
  800020e:	f000 f979 	bl	8000504 <SCH_Add_Task>
@@ -731,11 +731,6 @@ void SCH_Add_Task(void (* pFunction)(), uint32_t DELAY, uint32_t PERIOD){
  800050a:	60f8      	str	r0, [r7, #12]
  800050c:	60b9      	str	r1, [r7, #8]
  800050e:	607a      	str	r2, [r7, #4]
-//		SCH_tasks_G[current_index_task].RunMe = 0;
-//		SCH_tasks_G[current_index_task].TaskID = current_index_task;
-//
-//		current_index_task ++;
-//	}
 	uint8_t Index = 0;
  8000510:	2300      	movs	r3, #0
  8000512:	75fb      	strb	r3, [r7, #23]
